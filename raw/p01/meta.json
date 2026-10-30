@@ -1,0 +1,8 @@
+{
+  "heightCm": 33,
+  "board": {
+    "color": "#6f3b2c",
+    "coverX": [0.03, 0.93],
+    "coverY": [0.02, 0.8]
+  }
+}

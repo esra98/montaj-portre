@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0e0d0c" />
+    <link rel="icon" href="data:," />
+    <title>Montaj Portre</title>
+    <meta name="description" content="Gündelik nesnelerden kurulmuş yirmi yüz — Twenty faces assembled from everyday objects." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap"
+    />
+    <!-- The atlas is the first thing the ring needs: fetch it in parallel with JS. -->
+    <link rel="preload" href="./assets/atlas.webp" as="fetch" crossorigin fetchpriority="high" />
+  </head>
+  <body data-mode="intro">
+    <canvas id="gl" aria-label="Montaj Portre 3D gallery"></canvas>
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="top">
+      <a class="brand" href="./">Montaj <em>Portre</em></a>
+      <nav class="nav">
+        <button class="link" data-action="index" data-i18n="index">Dizin</button>
+        <span class="langs">
+          <button class="link" data-lang="tr">TR</button><span aria-hidden="true">/</span
+          ><button class="link" data-lang="en">EN</button>
+        </span>
+      </nav>
+    </header>
+
+    <main class="ring-ui">
+      <h1 class="statement" data-i18n="statement">Gündelik nesnelerden kurulmuş yirmi yüz.</h1>
+      <div class="current">
+        <p class="counter"><span data-bind="number">01</span> <span class="rule"></span> 20</p>
+        <h2 class="title" data-bind="title">Ali</h2>
+        <p class="date" data-bind="date"></p>
+        <button class="cta" data-action="open"><span data-i18n="explore">Portreyi incele</span> <span aria-hidden="true">→</span></button>
+      </div>
+      <p class="hint" data-i18n="hint">Sürükle ya da kaydır</p>
+      <div class="arrows">
+        <button class="arrow" data-action="prev" data-i18n-label="prev" aria-label="Önceki">←</button>
+        <button class="arrow" data-action="next" data-i18n-label="next" aria-label="Sonraki">→</button>
+      </div>
+    </main>
+
+    <aside class="detail" aria-hidden="true">
+      <button class="sheet-handle" data-action="sheet" aria-label="Details"><span></span></button>
+      <button class="link back" data-action="close"><span aria-hidden="true">←</span> <span data-i18n="back">Halkaya dön</span></button>
+      <p class="counter"><span data-bind="number">01</span> <span class="rule"></span> 20</p>
+      <h2 class="title" data-bind="title">Ali</h2>
+      <p class="date" data-bind="date"></p>
+      <div class="ar">
+        <button class="cta solid" data-action="ar" data-i18n="ar">Masanda gör</button>
+        <p class="ar-hint" data-i18n="arDesktop"></p>
+      </div>
+      <p class="inspect-hint" data-i18n="inspectHint">Etrafında dolaşmak için sürükle</p>
+      <section class="block">
+        <h3 data-i18n="materials">Malzemeler</h3>
+        <ul class="materials" data-bind="materials"></ul>
+      </section>
+      <section class="block">
+        <h3 data-i18n="notes">Notlar</h3>
+        <p class="notes" data-bind="notes"></p>
+      </section>
+      <figure class="aux"><img data-bind="image" alt="" loading="lazy" decoding="async" /></figure>
+    </aside>
+
+    <div class="index" aria-hidden="true">
+      <button class="link index-close" data-action="index-close" data-i18n="close">Kapat</button>
+      <ol class="index-grid"></ol>
+    </div>
+
+    <div class="loader" aria-live="polite"><span class="loader-line"></span><span data-i18n="loading">Yükleniyor</span></div>
+    <div class="busy" aria-hidden="true"></div>
+
+    <noscript><p class="noscript">Montaj Portre requires JavaScript.</p></noscript>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
